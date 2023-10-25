@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/../Decorators/.idea/Decorators.iml" filepath="$PROJECT_DIR$/../Decorators/.idea/Decorators.iml" />
       <module fileurl="file://$PROJECT_DIR$/../DifferentTests/.idea/DifferentTests.iml" filepath="$PROJECT_DIR$/../DifferentTests/.idea/DifferentTests.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/IteratorsGeneratorsYield.iml" filepath="$PROJECT_DIR$/.idea/IteratorsGeneratorsYield.iml" />
     </modules>

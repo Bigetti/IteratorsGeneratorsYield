@@ -1,3 +1,36 @@
+import os
+import datetime
+
+
+
+def logger(old_function):
+
+    func_name = old_function.__name__
+    print(f"-------Была вызвана Функция {func_name} и для нее будет добавлена запись в лог, ")
+
+    def new_function(*args, **kwargs):
+
+        func_name = old_function.__name__
+        print(f"Вызвана функция {func_name}")
+        current_time = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        print(f"Функция {func_name} была вызвана в {current_time}")
+
+        args_str = ', '.join(map(str, args))
+        kwargs_str = ', '.join(f'{k}={v!r}' for k, v in kwargs.items())
+
+        with open('main.log', 'a') as f:
+            f.write(f" была вызвана функция {func_name} в {current_time}\n")
+            f.write(f'Аргументы: {args_str}, {kwargs_str}\n')
+
+            result = old_function(*args, **kwargs)
+            f.write(f'Результат: {result}\n')
+
+        return result
+
+    return new_function
+
+
+
 class FlatIterator:
 
     def __init__(self, list_of_lists):
@@ -26,6 +59,7 @@ class FlatIterator:
 
         return item
 
+@logger
 def test_1():
 
     list_of_lists_1 = [
